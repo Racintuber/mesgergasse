@@ -63,27 +63,14 @@
             }
         }
     </script>
-<script>
-    async function logVisit() {
-        const response = await fetch("https://api.logsnag.com/v1/log", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                "Authorization": "Bearer 2722567ec847a89d0a3d6ada8b330e8c"
-            },
-            body: JSON.stringify({
-                project: "MiPagina",
-                channel: "visitas",
-                event: "Nueva visita",
-                description: `Alguien entró a la página!`,
-                icon: "👀"
-            })
-        });
-        const data = await response.json();
-        console.log("Log enviado:", data);
-    }
+<!-- Initialize LogSnag -->
 
-    logVisit(); // Se ejecuta al cargar la página
+<script async="true" src="https://cdn.logsnag.com/web/ls.js"></script>
+<script>
+  window.lsq = window.lsq || [];
+  window.ls = window.ls || ((...args) => window.lsq.push(args));
+  window.ls("setConfig", "2722567ec847a89d0a3d6ada8b330e8c", "holapes");
+</script>
 </script>
 
 
