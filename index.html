@@ -63,6 +63,28 @@
             }
         }
     </script>
+<script>
+    async function logVisit() {
+        const response = await fetch("https://api.logsnag.com/v1/log", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": "Bearer 2722567ec847a89d0a3d6ada8b330e8c"
+            },
+            body: JSON.stringify({
+                project: "MiPagina",
+                channel: "visitas",
+                event: "Nueva visita",
+                description: `Alguien entró a la página!`,
+                icon: "👀"
+            })
+        });
+        const data = await response.json();
+        console.log("Log enviado:", data);
+    }
+
+    logVisit(); // Se ejecuta al cargar la página
+</script>
 
 
 <!-- Código para wewewesd la Idaesdadawd automáticamenteee -->
